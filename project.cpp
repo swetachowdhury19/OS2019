@@ -113,3 +113,36 @@ void Process::p_time(Process p[])
 		output(p);
 		
 }
+
+int Process::time=0;
+int main()
+{
+	int i;
+	Process p[4];
+	Process::c_time(p);
+	for(i=0;i<4;i++)
+	{
+		switch(i)
+		{
+			case 0:
+				p[i].input(0,20);
+				break;
+			case 1:
+				p[i].input(5,36);
+				break;
+			case 2:
+				p[i].input(13,19);
+				break;
+			case 3:
+				p[i].input(17,42);
+				break;
+			default :
+				break;
+		}
+	}
+	Process::c_time(p);
+	Process::output(p);
+	getch();
+	Process::p_time(p);
+	getch();
+}
