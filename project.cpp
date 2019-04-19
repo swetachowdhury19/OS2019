@@ -73,3 +73,19 @@ void Process:: input(int arraival_time,int Brust_time)
 		cout<<"     ||                                                                                   Avg.TAT=="<<p[0].tat+p[1].tat+p[2].tat+p[3].tat<<"      A.W.T =="<<p[0].waiting_time+p[1].waiting_time+p[2].waiting_time+p[3].waiting_time<<"   ||\n";
 		cout<<"     =======================================================================================================================\n\n";
 	}
+void Process::p_time(Process p[])
+{
+	time=0;
+		p[0].completion_time=p[0].Brust_time;
+		time=p[0].completion_time;
+	for(int i=5;i>=0;i--)
+	{
+		for(int j=1;j<4;j++)
+		{
+			if(p[j].priority==i)
+			{
+					p[j].completion_time=time+p[j].Brust_time;
+					time+=p[j].Brust_time;
+			}
+		}
+	}
